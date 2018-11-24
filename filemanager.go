@@ -25,6 +25,9 @@ func (fm FileManager) getDirectoryFiles() []File {
 	}
 
 	for _, elem := range files {
+		if elem.IsDir() {
+			continue
+		}
 		file := File{
 			Name: "oi",
 			Path: "d",
