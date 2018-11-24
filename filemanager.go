@@ -1,6 +1,8 @@
 package main
 
-import "io/ioutil"
+import (
+	"io/ioutil"
+)
 
 // FileManager type
 type FileManager struct {
@@ -28,7 +30,7 @@ func (fm FileManager) getDirectoryListing() []File {
 			Path: "d",
 			Size: elem.Size(),
 		}
-		_ = append(rfiles, file)
+		rfiles = append(rfiles, file)
 	}
 
 	return rfiles
