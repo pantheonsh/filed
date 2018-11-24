@@ -8,7 +8,10 @@ import (
 
 func layout(g *gocui.Gui) error {
 	width, height := g.Size()
-
+	f := FileManager{
+		CurrPath: "oi",
+	}
+	f.getDirectoryListing()
 	if v, err := g.SetView("treeview", 2, 1, width/4, height-2); err != nil {
 		if err != gocui.ErrUnknownView {
 			return err
