@@ -16,7 +16,7 @@ type File struct {
 	Size int64
 }
 
-func (fm FileManager) getDirectoryListing() []File {
+func (fm FileManager) getDirectoryFiles() []File {
 	files, err := ioutil.ReadDir(fm.CurrPath)
 	var rfiles = []File{}
 
