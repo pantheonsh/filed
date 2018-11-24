@@ -17,8 +17,9 @@ type File struct {
 }
 
 func (fm FileManager) getDirectoryFiles() []File {
-	files, err := ioutil.ReadDir(fm.CurrPath)
+	var scanpath = fm.CurrPath
 	var rfiles = []File{}
+	files, err := ioutil.ReadDir(scanpath)
 
 	if err != nil {
 		return nil
@@ -29,8 +30,8 @@ func (fm FileManager) getDirectoryFiles() []File {
 			continue
 		}
 		file := File{
-			Name: "oi",
-			Path: "d",
+			Name: elem.Name(),
+			Path: scanpath,
 			Size: elem.Size(),
 		}
 		rfiles = append(rfiles, file)
